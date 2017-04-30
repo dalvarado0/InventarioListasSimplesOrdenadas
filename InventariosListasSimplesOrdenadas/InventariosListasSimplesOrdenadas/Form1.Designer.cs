@@ -42,6 +42,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnReporteInv = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnBuscar
@@ -168,11 +169,22 @@
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
+            // btnReporteInv
+            // 
+            this.btnReporteInv.Location = new System.Drawing.Point(768, 93);
+            this.btnReporteInv.Name = "btnReporteInv";
+            this.btnReporteInv.Size = new System.Drawing.Size(90, 39);
+            this.btnReporteInv.TabIndex = 39;
+            this.btnReporteInv.Text = "Reporte Inv";
+            this.btnReporteInv.UseVisualStyleBackColor = true;
+            this.btnReporteInv.Click += new System.EventHandler(this.btnReporteInv_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(887, 414);
+            this.Controls.Add(this.btnReporteInv);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txbReporte);
             this.Controls.Add(this.txbBuscar);
@@ -211,6 +223,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnReporteInv;
     }
 }
 
