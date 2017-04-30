@@ -34,14 +34,15 @@ namespace InventariosListasSimplesOrdenadas
 
         public Producto buscar(int codigo)
         {
-            Producto item = null;
-            Producto temp = inicio;
+            Producto item = null, temp = inicio;
             while (temp.siguiente != null)
             {
-                if (temp.siguiente.codigo == codigo)
+                if (temp.codigo == codigo)
                 {
-                    item = temp.siguiente;
+                    return temp;
                 }
+                if (temp.siguiente.codigo == codigo)
+                    item = temp.siguiente;
                 temp = temp.siguiente;
             }
             return item;
@@ -52,11 +53,20 @@ namespace InventariosListasSimplesOrdenadas
             Producto temp = inicio;
             while (temp.siguiente != null)
             {
-                if (temp.siguiente.codigo == codigo)
+                if (temp.codigo == codigo)
                 {
-                    temp.siguiente = temp.siguiente.siguiente;
+                    inicio = temp.siguiente;
+                    temp = inicio;
                 }
-                temp = temp.siguiente;
+                else
+                {
+                    if (temp.siguiente.codigo == codigo)
+                    {
+                        temp.siguiente = temp.siguiente.siguiente;
+                        break;
+                    }
+                    temp = temp.siguiente;
+                }
             }
         }
 
@@ -66,7 +76,7 @@ namespace InventariosListasSimplesOrdenadas
             Producto t = inicio;
             while (t != null)
             {
-                datos += t.ToString();
+                datos += t.ToString() + Environment.NewLine;
                 t = t.siguiente;
             }
             return datos;
@@ -75,20 +85,20 @@ namespace InventariosListasSimplesOrdenadas
         public string reporteInvertido()
         {
             string reporte = "";
-            Producto t = inicio;
-            if (t == null)
+            Producto temp = inicio;
+            if (temp == null)
                 return reporte;
             else
-                return reporteInv(t);
+                return reporteInv(temp);
         }
 
         private string reporteInv(Producto item)
         {
             if (item.siguiente == null)
-                return item.ToString();
+                return item.ToString() + Environment.NewLine;
             else
             {
-                return reporteInv(item.siguiente) + item.ToString();
+                return reporteInv(item.siguiente) + item.ToString() + Environment.NewLine;
             }
         }
     }
